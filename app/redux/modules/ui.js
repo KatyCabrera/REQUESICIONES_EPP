@@ -18,7 +18,7 @@ import {
 
 const initialState = {
   /* Settings for Themes and layout */
-  theme: 'pinkGreenTheme',
+  theme: 'blueCyanTheme',
   direction: 'ltr',
   type: 'dark', // light or dark
   gradient: true, // true or false
@@ -27,7 +27,7 @@ const initialState = {
   layout: 'left-sidebar', // big-sidebar, left-sidebar, top-navigation, mega-menu
   /* End settings */
   palette: [
-    { name: 'Mint', value: 'pinkGreenTheme' },
+    { name: 'Mint', value: 'blueCyanTheme' },
     { name: 'Monochrome', value: 'greyTheme' }
   ],
   sidebarOpen: true,
