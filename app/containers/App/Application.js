@@ -12,7 +12,8 @@ import {
   Error,
   NotFound,
   Requisiciones,
-  ListaRequisiciones
+  ListaRequisiciones,
+  Usuario
 } from '../pageListAsync';
 
 function Application(props) {
@@ -22,7 +23,7 @@ function Application(props) {
     <Dashboard history={history} changeMode={changeMode}>
       <Switch>
         <Route exact path="/app" component={BlankPage} />
-        <Route exact path="/app/blank-page" component={BlankPage} />
+        <Route exact path="/app/usuario" component={Usuario} />
         <Route path="/app/pages/dashboard" component={DashboardPage} />
         <Route path="/app/pages/form" component={Form} />
         <Route path="/app/pages/table" component={Table} />

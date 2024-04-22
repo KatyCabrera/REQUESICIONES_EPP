@@ -4,12 +4,12 @@ import React from 'react';
 import Loading from 'dan-components/Loading';
 import loadable from '../utils/loadable';
 
-export const BlankPage = loadable(() =>
-  import('./Pages/BlankPage'), {
+export const Usuario = loadable(() =>
+  import('./Usuario/Usuario.js'), {
     fallback: <Loading />,
   });
-export const DashboardPage = loadable(() =>
-  import('./Pages/Dashboard'), {
+export const requisiciones = loadable(() =>
+  import('./Requisiciones/Requisiciones.js'), {
     fallback: <Loading />,
   });
 export const Form = loadable(() =>
