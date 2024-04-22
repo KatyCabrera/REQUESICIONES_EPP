@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 const actividades = [
     {
       id: 1,
-      nombre: "Material para delimitar e identificaciòn",
+      nombre: "EQUIPO PARA DELIMITAR E IDENTIFICAR",
       materialesSeguridad: [
         {
           descripcion: "Trafipostes con Base",
@@ -26,32 +26,170 @@ const actividades = [
         }, {
           descripcion: "Cinta Caramelo",
           id: 5,
+        }, {
+          descripcion: "Zona de hidratación",
+          id: 6,
+        }, {
+          descripcion: "Pizarrón",
+          id: 7,
+        }, {
+          descripcion: "Botiquín",
+          id: 8,
+        }, {
+          descripcion: "Bandera de seguridad",
+          id: 9,
         }
       ]
     },
     {
       id: 2,
-      nombre: "Materiales para trabajar en altura",
-      materialesSeguridad: [{
-        descripcion: "Cinta negra (Peligro)",
+      nombre: "EQUIPO PARA TRABAJOS EN ALTURAS",
+      materialesSeguridad: [
+        {
+        descripcion: "Kit de alturas",
         id: 1,
-      }]
+      }, {
+        descripcion: "Tornillo de alpinista",
+        id: 2,
+      }, {
+        descripcion: "Línea de vida con amortiguador",
+        id: 3,
+      }, {
+        descripcion: "Caja porta herramientas",
+        id: 4,
+      }, {
+        descripcion: "Muñequera porta herramientas",
+        id: 5,
+      }, {
+        descripcion: "Anclaje para viga",
+        id: 6,
+      }, 
+    ]
     },
     {
       id: 3,
-      nombre: "Materiales para trabajos en caliente",
-      materialesSeguridad: [{
-        descripcion: "Cinta morada (Peligro)",
+      nombre: "EQUIPO PARA TRABAJOS EN CALIENTE",
+      materialesSeguridad: [
+        {
+        descripcion: "Extintor PQS 1KG",
         id: 1,
-      }]
+      }, {
+        descripcion: "Extintor PQS 6KG",
+        id: 2,
+      }, {
+        descripcion: "Extintor PQS 9KG",
+        id: 3,
+      }, {
+        descripcion: "Extintor Co2 9KG",
+        id: 4,
+      }, {
+        descripcion: "Lona ignifuga",
+        id: 5,
+      }, {
+        descripcion: "Careta facial",
+        id: 6,
+      }, {
+        descripcion: "Careta para soldar",
+        id: 7,
+      }, {
+        descripcion: "Kit soldadura",
+        id: 8,
+      },
+    ]
     },
     {
       id: 4,
-      nombre: "Equipo de bloqueo y candado",
-      materialesSeguridad: [{
-        descripcion: "Cinta rosita (Peligro)",
+      nombre: "EQUIPO DE BLOQUEO Y CANDADEO",
+      materialesSeguridad: [
+        {
+        descripcion: "Caja de bloqueo",
         id: 1,
-      }]
+      }, {
+        descripcion: "Candado amarillo",
+        id: 2,
+      }, {
+        descripcion: "Cangrejo",
+        id: 3,
+      }, {
+        descripcion: "Dispositivo de bloqueo Breaker G",
+        id: 4,
+      }, {
+        descripcion: "Dispositivo de bloqueo Breaker M",
+        id: 5,
+      }, {
+        descripcion: "Dispositivo de bloqueo Breaker CH",
+        id: 6,
+      }, {
+        descripcion: "Dispositivo de bloqueo Válvula Redonda G",
+        id: 7,
+      }, {
+        descripcion: "Dispositivo de bloqueo Válvula Largo",
+        id: 8,
+      }, {
+        descripcion: "Meza de bloqueo",
+        id: 9,
+      }, 
+    ]
+    }, 
+    { id: 5,
+      nombre: "EQUIPO PARA APLICACIÓN DE PINTURA",
+      materialesSeguridad: [
+        {
+        descripcion: "Kit Antiderrames",
+        id: 1,
+      }, {
+        descripcion: "Charola antiderrames",
+        id: 2,
+      }, {
+        descripcion: "Mascarilla con filtro",
+        id: 3,
+      }, {
+        descripcion: "Traje Tyvek",
+        id: 4,
+      }, {
+        descripcion: "Guantes de latéx",
+        id: 5,
+      },  {
+        descripcion: "Plasticos para cubrir",
+        id: 6,
+      },
+    ]
+    },
+    { id: 6,
+      nombre: "EQUIPO DE LIMPIEZA",
+      materialesSeguridad: [
+        {
+        descripcion: "Recogedor",
+        id: 1,
+      }, {
+        descripcion: "Escoba",
+        id: 2,
+      }, {
+        descripcion: "Bolsas de basura G",
+        id: 3,
+      }, {
+        descripcion: "Bolsas de basura CH",
+        id: 4,
+      }, 
+      ]
+    }, 
+    {id: 7,
+      nombre: "EQUIPO ADICIONAL",
+      materialesSeguridad: [
+        {
+        descripcion: "Extensión",
+        id: 1,
+      }, {
+        descripcion: "Rodilleras",
+        id: 2,
+      }, {
+        descripcion: "Guantes anti-impacto",
+        id: 3,
+      }, {
+        descripcion: "Charola de scrap",
+        id: 4,
+      },
+    ]
     }
 ];
 
