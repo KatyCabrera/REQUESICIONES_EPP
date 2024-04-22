@@ -3,19 +3,30 @@ import { Helmet } from 'react-helmet';
 import brand from 'dan-api/dummy/brand';
 import { PapperBlock, EmptyData } from 'dan-components';
 import TablaMateriales from './TablaMateriales';
+import Button from '@mui/material/Button';
+import { useHistory } from "react-router-dom";
 
 const actividades = [
     {
       id: 1,
-      nombre: "Material para delimitar",
+      nombre: "Material para delimitar e identificaciòn",
       materialesSeguridad: [
         {
-          descripcion: "Cinta roja (Peligro)",
+          descripcion: "Trafipostes con Base",
           id: 1,
         }, {
-          descripcion: "Cinta amarilla (Precaución)",
+          descripcion: "Cinta roja (Peligro)",
           id: 2,
-        }, 
+        }, {
+          descripcion: "Cinta amarilla (Precaución)",
+          id: 3,
+        }, {
+          descripcion: "Cinta Diurex",
+          id: 4,
+        }, {
+          descripcion: "Cinta Caramelo",
+          id: 5,
+        }
       ]
     },
     {
@@ -47,10 +58,22 @@ const actividades = [
 function Requisiciones() {
   const title = 'Requisiciones';
   const description = 'Requisiciones de equipo de seguridad';
-  const [cantidades, setCantidades] = useState({});
+  const [cantidades, setCantidades] = useState({ });
+  const history = useHistory();
 
-  function handleCantidadChanged(cantidad, materialSeguridad) {
+  function handleCantidadChanged(cantidad, materialSeguridadId, activadId) {
+      setCantidades(prevState => ({
+        ...prevState,
+        [activadId]: {
+            ...prevState[activadId],
+            [materialSeguridadId]: cantidad
+        }
+      }));
+  }
 
+  function handleCreateRequisicion() {
+    alert("Requisición Creada");
+    history.push("/app/lista-requisiciones");
   }
 
   return (
@@ -90,6 +113,9 @@ function Requisiciones() {
             </div>
           ))
         }
+        <div style={{ display: 'flex', justifyContent: 'end' }}>
+          <Button onClick={handleCreateRequisicion} variant="contained">Crear Requisición</Button>
+        </div>
       </PapperBlock>
     </div>
   );

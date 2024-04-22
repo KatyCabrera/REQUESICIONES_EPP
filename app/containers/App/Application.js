@@ -11,7 +11,8 @@ import {
   Table,
   Error,
   NotFound,
-  Requisiciones
+  Requisiciones,
+  ListaRequisiciones
 } from '../pageListAsync';
 
 function Application(props) {
@@ -29,6 +30,7 @@ function Application(props) {
         <Route path="/app/pages/error" component={Error} />
         <Route exact path="/app/pages" component={Parent} />
         <Route path="/app/requisiciones" component={Requisiciones} />
+        <Route path="/app/lista-requisiciones" component={ListaRequisiciones} />
         <Route component={NotFound} />
       </Switch>
     </Dashboard>

@@ -8,6 +8,12 @@ const useStyles = makeStyles()((theme) => ({
   root: {
     paddingRight: theme.spacing(1),
   },
+  rootContainer: {
+    width: '50%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    }
+  },
   rootTable: {
     width: '100%',
     marginTop: theme.spacing(3),

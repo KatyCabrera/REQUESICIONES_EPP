@@ -13,8 +13,8 @@ function StrippedTable({ materialesSeguridad, actividad, onCantidadMaterialChang
   const { classes, cx } = useStyles();
 
   return (
-    <div key={actividad.id}  style={{
-      display: 'flex', flexDirection: 'column', minWidth: 250, width: '50%'
+    <div key={actividad.id} className={classes.rootContainer}  style={{
+      display: 'flex', flexDirection: 'column', minWidth: 250, 
     }}>
       <Toolbar className={classes.toolbar}>
         <div className={classes.title}>
@@ -25,7 +25,7 @@ function StrippedTable({ materialesSeguridad, actividad, onCantidadMaterialChang
         <Table className={cx(classes.table, classes.stripped)}>
           <TableHead>
             <TableRow>
-              <TableCell padding="normal">Material de seguridad</TableCell>
+              <TableCell padding="normal">Descripción</TableCell>
               <TableCell align="right">Cantidad</TableCell>
             </TableRow>
           </TableHead>
@@ -38,7 +38,7 @@ function StrippedTable({ materialesSeguridad, actividad, onCantidadMaterialChang
                     <TextField id="outlined-basic" 
                           label="Cantidad" 
                           variant="outlined" 
-                          onChange={ev => onCantidadMaterialChanged(ev.target.value, material)}
+                          onChange={ev => onCantidadMaterialChanged(ev.target.value, material.id, actividad.id)}
                           value={cantidadesMateriales ? cantidadesMateriales[material.id] : 0} />
                   </TableCell>
                 </TableRow>

@@ -18,15 +18,15 @@ const lightPalette = {
   blueCyanTheme: {
     palette: {
       primary: {
-        light: '#E1F5FE',
-        main: '#039BE5',
-        dark: '#01579B',
+        light: '#bde0fe',
+        main: '#bde0fe',
+        dark: '#bde0fe',
         contrastText: '#fff',
       },
       secondary: {
-        light: '#E0F7FA',
-        main: '#00BCD4',
-        dark: '#00838F',
+        light: '#ffc8dd',
+        main: '#ffc8dd',
+        dark: '#cdb4db',
         contrastText: '#fff',
       },
     },
