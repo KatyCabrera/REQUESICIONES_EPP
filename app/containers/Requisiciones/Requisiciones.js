@@ -5,6 +5,7 @@ import { PapperBlock, EmptyData } from 'dan-components';
 import TablaMateriales from './TablaMateriales';
 import Button from '@mui/material/Button';
 import { useHistory } from "react-router-dom";
+import { TextField, Grid } from '@mui/material';
 
 const actividades = [
     {
@@ -197,6 +198,12 @@ function Requisiciones() {
   const title = 'Requisiciones';
   const description = 'Requisiciones de equipo de seguridad';
   const [cantidades, setCantidades] = useState({ });
+  const [cliente, setCliente] = useState('');
+  const [planta, setPlanta] = useState('');
+  const [solicitante, setSolicitante] = useState('');
+  const [proyecto, setProyecto] = useState('');
+  const [fechaEntrada, setFechaEntrada] = useState('');
+  const [fechaSalida, setFechaSalida] = useState('');
   const history = useHistory();
 
   function handleCantidadChanged(cantidad, materialSeguridadId, activadId) {
@@ -225,6 +232,76 @@ function Requisiciones() {
         <meta property="twitter:description" content={description} />
       </Helmet>
       <PapperBlock title="Nueva Requisicion" whiteBg icon="ion-ios-menu-outline" desc="Creación de requisiciones de materiales de seguridad">
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+            <Grid container spacing={2} style={{ marginBottom: '20px' }}>
+              <Grid item xs={6}>
+                <TextField
+                  label="Cliente"
+                  variant="outlined"
+                  fullWidth
+                  value={cliente}
+                  onChange={(e) => setCliente(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  label="Fecha de entrada"
+                  variant="outlined"
+                  type="date"
+                  fullWidth
+                  InputLabelProps={{ shrink: true }}
+                  value={fechaEntrada}
+                  onChange={(e) => setFechaEntrada(e.target.value)}
+                />
+              </Grid>
+            </Grid>
+            <Grid container spacing={2} style={{ marginBottom: '20px' }}>
+              <Grid item xs={6}>
+                <TextField
+                  label="Planta"
+                  variant="outlined"
+                  fullWidth
+                  value={planta}
+                  onChange={(e) => setPlanta(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  label="Fecha de salida"
+                  variant="outlined"
+                  type="date"
+                  fullWidth
+                  InputLabelProps={{ shrink: true }}
+                  value={fechaSalida}
+                  onChange={(e) => setFechaSalida(e.target.value)}
+                />
+              </Grid>
+            </Grid>
+            <Grid container spacing={2} style={{ marginBottom: '20px' }}>
+              <Grid item xs={6}>
+                <TextField
+                  label="Solicitante"
+                  variant="outlined"
+                  fullWidth
+                  value={solicitante}
+                  onChange={(e) => setSolicitante(e.target.value)}
+                />
+              </Grid>
+            </Grid>
+            <Grid container spacing={2} style={{ marginBottom: '20px' }}>
+              <Grid item xs={6}>
+                <TextField
+                  label="Proyecto"
+                  variant="outlined"
+                  fullWidth
+                  value={proyecto}
+                  onChange={(e) => setProyecto(e.target.value)}
+                />
+              </Grid>
+            </Grid>
+          </div>
+        </div>
         {
           //ESTO ES GRACIAS A CHATGP
           //DIVIDE AREGLO EN SUB AREGLOS DE 2 ELEMENTOS
