@@ -16,10 +16,10 @@ const actividades = [
           descripcion: "Trafipostes con Base",
           id: 1,
         }, {
-          descripcion: "Cinta roja (Peligro)",
+          descripcion: "Cinta Roja (Peligro)",
           id: 2,
         }, {
-          descripcion: "Cinta amarilla (Precaución)",
+          descripcion: "Cinta Amarilla (Precaución)",
           id: 3,
         }, {
           descripcion: "Cinta Diurex",
@@ -28,16 +28,16 @@ const actividades = [
           descripcion: "Cinta Caramelo",
           id: 5,
         }, {
-          descripcion: "Zona de hidratación",
+          descripcion: "Zona de Hidratación",
           id: 6,
         }, {
-          descripcion: "Pizarrón",
+          descripcion: "Pizarrón de Seguridad",
           id: 7,
         }, {
-          descripcion: "Botiquín",
+          descripcion: "Botiquín de Seguridad",
           id: 8,
         }, {
-          descripcion: "Bandera de seguridad",
+          descripcion: "Bandera de Seguridad",
           id: 9,
         }
       ]
@@ -47,22 +47,22 @@ const actividades = [
       nombre: "EQUIPO PARA TRABAJOS EN ALTURAS",
       materialesSeguridad: [
         {
-        descripcion: "Kit de alturas",
+        descripcion: "Kit de Alturas",
         id: 1,
       }, {
-        descripcion: "Tornillo de alpinista",
+        descripcion: "Tornillo de Alpinista",
         id: 2,
       }, {
-        descripcion: "Línea de vida con amortiguador",
+        descripcion: "Línea de Vida con Amortiguador",
         id: 3,
       }, {
-        descripcion: "Caja porta herramientas",
+        descripcion: "Caja Porta Herramientas",
         id: 4,
       }, {
-        descripcion: "Muñequera porta herramientas",
+        descripcion: "Muñequera Porta Herramientas",
         id: 5,
       }, {
-        descripcion: "Anclaje para viga",
+        descripcion: "Anclaje Para Viga",
         id: 6,
       }, 
     ]
@@ -84,16 +84,16 @@ const actividades = [
         descripcion: "Extintor Co2 9KG",
         id: 4,
       }, {
-        descripcion: "Lona ignifuga",
+        descripcion: "Lona Ignifuga",
         id: 5,
       }, {
-        descripcion: "Careta facial",
+        descripcion: "Careta Facial",
         id: 6,
       }, {
-        descripcion: "Careta para soldar",
+        descripcion: "Careta para Soldar",
         id: 7,
       }, {
-        descripcion: "Kit soldadura",
+        descripcion: "Kit Soldadura",
         id: 8,
       },
     ]
@@ -103,32 +103,36 @@ const actividades = [
       nombre: "EQUIPO DE BLOQUEO Y CANDADEO",
       materialesSeguridad: [
         {
-        descripcion: "Caja de bloqueo",
+        descripcion: "Caja de Bloqueo",
         id: 1,
       }, {
-        descripcion: "Candado amarillo",
+        descripcion: "Candado Amarillo",
         id: 2,
       }, {
         descripcion: "Cangrejo",
         id: 3,
       }, {
-        descripcion: "Dispositivo de bloqueo Breaker G",
+        descripcion: "Dispositivo de Bloqueo Breaker G",
         id: 4,
       }, {
-        descripcion: "Dispositivo de bloqueo Breaker M",
+        descripcion: "Dispositivo de Bloqueo Breaker M",
         id: 5,
       }, {
-        descripcion: "Dispositivo de bloqueo Breaker CH",
+        descripcion: "Dispositivo de Bloqueo Breaker CH",
         id: 6,
       }, {
-        descripcion: "Dispositivo de bloqueo Válvula Redonda G",
+        descripcion: "Dispositivo de Bloqueo Válvula Redonda G",
         id: 7,
-      }, {
-        descripcion: "Dispositivo de bloqueo Válvula Largo",
+      },
+      {
+        descripcion: "Dispositivo de Bloqueo Válvula Redonda CH",
         id: 8,
       }, {
-        descripcion: "Meza de bloqueo",
+        descripcion: "Dispositivo de Bloqueo Válvula Largo",
         id: 9,
+      }, {
+        descripcion: "Mesa de Bloqueo",
+        id: 10,
       }, 
     ]
     }, 
@@ -139,19 +143,19 @@ const actividades = [
         descripcion: "Kit Antiderrames",
         id: 1,
       }, {
-        descripcion: "Charola antiderrames",
+        descripcion: "Charola Antiderrames",
         id: 2,
       }, {
-        descripcion: "Mascarilla con filtro",
+        descripcion: "Mascarilla con Filtro",
         id: 3,
       }, {
         descripcion: "Traje Tyvek",
         id: 4,
       }, {
-        descripcion: "Guantes de latéx",
+        descripcion: "Guantes de Látex",
         id: 5,
       },  {
-        descripcion: "Plasticos para cubrir",
+        descripcion: "Plásticos Para Cubrir",
         id: 6,
       },
     ]
@@ -166,10 +170,10 @@ const actividades = [
         descripcion: "Escoba",
         id: 2,
       }, {
-        descripcion: "Bolsas de basura G",
+        descripcion: "Bolsas de Basura G",
         id: 3,
       }, {
-        descripcion: "Bolsas de basura CH",
+        descripcion: "Bolsas de Basura CH",
         id: 4,
       }, 
       ]
@@ -184,10 +188,10 @@ const actividades = [
         descripcion: "Rodilleras",
         id: 2,
       }, {
-        descripcion: "Guantes anti-impacto",
+        descripcion: "Guantes Anti-impacto",
         id: 3,
       }, {
-        descripcion: "Charola de scrap",
+        descripcion: "Charola de Scrap",
         id: 4,
       },
     ]
