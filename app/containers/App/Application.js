@@ -13,7 +13,8 @@ import {
   NotFound,
   Requisiciones,
   ListaRequisiciones,
-  Usuario
+  Usuario,
+  SolicitudRequisicion,
 } from '../pageListAsync';
 
 function Application(props) {
@@ -32,6 +33,7 @@ function Application(props) {
         <Route exact path="/app/pages" component={Parent} />
         <Route path="/app/requisiciones" component={Requisiciones} />
         <Route path="/app/lista-requisiciones" component={ListaRequisiciones} />
+        <Route path="/app/solicitud-requisicion" component={SolicitudRequisicion} />
         <Route component={NotFound} />
       </Switch>
     </Dashboard>
