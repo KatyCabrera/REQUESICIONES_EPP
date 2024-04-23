@@ -27,6 +27,12 @@ module.exports = [
         icon: 'ion-ios-home-outline',
       },
       {
+        key: 'SolicitudRequisicion',
+        name: 'Solicitud Requisicion',
+        link: '/app/solicitud-requisicion',
+        icon: 'ion-ios-home-outline',
+      },
+      {
         key: 'Lista Requisiciones',
         name: 'Lista Requisiciones',
         link: '/app/lista-requisiciones/Lista-requisiciones',
