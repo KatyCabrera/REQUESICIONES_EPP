@@ -10,9 +10,9 @@ module.exports = [
         title: true,
       },
       {
-        key: 'blank',
-        name: 'Blank Page',
-        link: '/app',
+        key: 'Usuario',
+        name: 'Usuario',
+        link: '/app/usuario',
         icon: 'ion-ios-document-outline',
       },
       {
@@ -21,21 +21,21 @@ module.exports = [
         title: true,
       },
       {
-        key: 'dashboard',
-        name: 'Dashboard',
-        link: '/app/pages/dashboard',
+        key: 'Requisiciones',
+        name: 'Requisiciones',
+        link: '/app/requisiciones/Requisiciones',
         icon: 'ion-ios-home-outline',
       },
       {
-        key: 'form',
-        name: 'Form',
-        link: '/app/pages/form',
+        key: 'Lista Requisiciones',
+        name: 'Lista Requisiciones',
+        link: '/app/lista-requisiciones/Lista-requisiciones',
         icon: 'ion-ios-list-box-outline',
       },
       {
-        key: 'table',
-        name: 'Table',
-        link: '/app/pages/table',
+        key: 'Requisición Permisos',
+        name: 'Requisición de Permisos',
+        link: '/app/requisición_de_permisos/Requisisción_de_Permisos',
         icon: 'ion-ios-grid-outline',
       },
       {

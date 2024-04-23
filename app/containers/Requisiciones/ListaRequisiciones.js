@@ -24,7 +24,7 @@ const requisiciones = [
         fecha: '22 Abril 2024',
         proyecto: {
             id: 1,
-            nombre: 'Toyota Motos',
+            nombre: 'Toyota Motors',
         }
     },
     {
@@ -36,7 +36,7 @@ const requisiciones = [
         fecha: '22 Abril 2024',
         proyecto: {
             id: 1,
-            nombre: 'Mabe Elecrodomésticos',
+            nombre: 'Mabe Electrodomésticos',
         }
     }
 ]
