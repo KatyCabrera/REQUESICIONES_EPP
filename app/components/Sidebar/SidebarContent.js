@@ -10,10 +10,12 @@ import dummy from 'dan-api/dummy/dummyContents';
 import logo from 'dan-images/logo.svg';
 import MainMenu from './MainMenu';
 import useStyles from './sidebar-jss';
+import { useSelector } from 'react-redux';
 
 function SidebarContent(props) {
   const { classes, cx } = useStyles();
   const [transform, setTransform] = useState(0);
+  const userData = useSelector(state => state.userReducer && state.userReducer.userData);
 
   const handleScroll = (event) => {
     const scroll = event.target.scrollTop;
@@ -74,7 +76,7 @@ function SidebarContent(props) {
               className={cx(classes.avatar, classes.bigAvatar)}
             />
             <div>
-              <h4>{dummy.user.name}</h4>
+              <h4>{userData.username}</h4>
               <Button size="small" onClick={openMenuStatus}>
                 <i className={cx(classes.dotStatus, setStatus(status))} />
                 {status}

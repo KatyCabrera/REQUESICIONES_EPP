@@ -6,7 +6,7 @@
  */
 
 // Import all the third party stuff
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -15,6 +15,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 import 'react-18-image-lightbox/style.css';
 import 'sanitize.css/sanitize.css';
+import axios from 'axios';
 
 // Import root app
 import App from 'containers/App';
@@ -47,15 +48,15 @@ const { store, persistor } = configureStore(initialState, history);
 const MOUNT_NODE = document.getElementById('app');
 
 const root = createRoot(MOUNT_NODE);
-const render = messages => {
+const render = () => {
   root.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <LanguageProvider messages={messages}>
+        
           <ConnectedRouter history={history}>
             <App history={history} />
           </ConnectedRouter>
-        </LanguageProvider>
+        
       </PersistGate>
     </Provider>
   );
@@ -87,6 +88,8 @@ if (!window.Intl) {
 } else {
   render(translationMessages);
 }
+
+axios.defaults.baseURL = 'http://192.168.100.43:9000';
 
 /**
 Offline access for production mode.

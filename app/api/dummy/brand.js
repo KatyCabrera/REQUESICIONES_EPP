@@ -1,7 +1,7 @@
 module.exports = {
-  name: 'Dandelion Pro',
-  desc: 'Dandelion Pro - React Website Template',
-  prefix: 'dandelion',
-  footerText: 'Dandelion Pro All Rights Reserved 2018',
-  logoText: 'Dandelion Pro',
+  name: 'Requisiciones EPP',
+  desc: 'Requisiciones EPP - Administración de requisiciones',
+  prefix: 'Requisiciones',
+  footerText: 'Katya María Cabrera Islas All Rights Reserved 2023',
+  logoText: 'Requisiciones EPP',
 };

@@ -1,28 +1,17 @@
 module.exports = [
   {
     key: 'pages',
-    name: 'Pages',
+    name: 'Requisiciones',
     icon: 'ion-ios-paper-outline',
     child: [
-      {
-        key: 'other_page',
-        name: 'Welcome Page',
-        title: true,
-      },
-      {
-        key: 'Usuario',
-        name: 'Usuario',
-        link: '/app/usuario',
-        icon: 'ion-ios-document-outline',
-      },
-      {
+      /*{
         key: 'main_page',
-        name: 'Sample Page',
+        name: 'Opciones',
         title: true,
-      },
+      },*/
       {
-        key: 'Requisiciones',
-        name: 'Requisiciones',
+        key: 'nueva-requisicion',
+        name: 'Crear Requisición',
         link: '/app/requisiciones/Requisiciones',
         icon: 'ion-ios-home-outline',
       },
@@ -44,7 +33,7 @@ module.exports = [
         link: '/app/requisición_de_permisos/Requisisción_de_Permisos',
         icon: 'ion-ios-grid-outline',
       },
-      {
+      /*{
         key: 'maintenance',
         name: 'Maintenance',
         link: '/maintenance',
@@ -55,10 +44,10 @@ module.exports = [
         name: 'Coming Soon',
         link: '/coming-soon',
         icon: 'ion-ios-bonfire-outline'
-      },
+      },*/
     ]
   },
-  {
+  /*{
     key: 'auth',
     name: 'Auth Page',
     icon: 'ion-ios-contact-outline',
@@ -147,5 +136,5 @@ module.exports = [
     name: 'One Level Menu',
     icon: 'ion-ios-document-outline',
     linkParent: '/app/blank-page',
-  }
+  }*/
 ];

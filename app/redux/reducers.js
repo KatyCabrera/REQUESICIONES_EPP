@@ -10,6 +10,8 @@ import history from '../utils/history';
 import login from './modules/login';
 import uiReducer from './modules/ui';
 import initval from './modules/initForm';
+import userReducer from './modules/user';
+import requisicionReducer from './modules/requisiciones';
 
 /**
  * Creates the main reducer with the dynamically injected ones
@@ -22,6 +24,8 @@ export default function createReducer(injectedReducers = {}) {
     initval,
     language: languageProviderReducer,
     router: connectRouter(history),
+    userReducer,
+    requisicionReducer,
     ...injectedReducers,
   });
 

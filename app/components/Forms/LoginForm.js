@@ -15,6 +15,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import AllInclusive from '@mui/icons-material/AllInclusive';
 import Brightness5 from '@mui/icons-material/Brightness5';
 import People from '@mui/icons-material/People';
+import CircularProgress from '@mui/material/CircularProgress';
 import ArrowForward from '@mui/icons-material/ArrowForward';
 import Paper from '@mui/material/Paper';
 import Icon from '@mui/material/Icon';
@@ -75,44 +76,28 @@ function LoginForm(props) {
             </NavLink>
             <Button size="small" className={classes.buttonLink} component={LinkBtn} to="/register">
               <Icon className={classes.icon}>arrow_forward</Icon>
-              Create new account
+              Crear cuenta
             </Button>
           </div>
         )}
         <Typography variant="h4" className={classes.title} gutterBottom>
-          Sign In
+          Entrar
         </Typography>
         <Typography variant="caption" className={classes.subtitle} gutterBottom align="center">
-          Lorem ipsum dolor sit amet
+          Ingrese su usuario y contraseña
         </Typography>
-        <section className={classes.socmedLogin}>
-          <div className={classes.btnArea}>
-            <Button variant="outlined" size="small" className={classes.redBtn} type="button">
-              <AllInclusive className={cx(classes.leftIcon, classes.iconSmall)} />
-              Socmed 1
-            </Button>
-            <Button variant="outlined" size="small" className={classes.blueBtn} type="button">
-              <Brightness5 className={cx(classes.leftIcon, classes.iconSmall)} />
-              Socmed 2
-            </Button>
-            <Button variant="outlined" size="small" className={classes.cyanBtn} type="button">
-              <People className={cx(classes.leftIcon, classes.iconSmall)} />
-              Socmed 3
-            </Button>
-          </div>
-          <ContentDivider content="Or sign in with email" />
-        </section>
+        
         <section className={classes.formWrap}>
           <form onSubmit={handleSubmit}>
             <div>
               <FormControl variant="standard" className={classes.formControl}>
                 <Field
-                  name="email"
+                  name="username"
                   component={TextFieldRedux}
-                  placeholder="Your Email"
-                  label="Your Email"
+                  placeholder="Usuario"
+                  label="Ingresa tu usuario"
                   required
-                  validate={[required, email]}
+                  validate={[required]}
                   className={classes.field}
                 />
               </FormControl>
@@ -143,16 +128,27 @@ function LoginForm(props) {
                 />
               </FormControl>
             </div>
-            <div className={classes.optArea}>
-              <FormControlLabel className={classes.label} control={<Field name="checkbox" component={CheckboxRedux} />} label="Remember" />
-              <Button size="small" component={LinkBtn} to="/reset-password" className={classes.buttonLink}>Forgot Password</Button>
-            </div>
+            
             <div className={classes.btnArea}>
               <Button variant="contained" color="primary" size="large" type="submit">
-                Continue
-                <ArrowForward className={cx(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine} />
+                Entrar
+                <ArrowForward className={cx(classes.rightIcon, classes.iconSmall)} disabled={submitting || pristine || props.isLoading} />
               </Button>
             </div>
+            <div className={classes.btnArea}>
+                {
+                  props.isLoading ? 
+                    <CircularProgress size={24} />: null
+                }
+              </div>
+            {!mdUp && (
+              <div className={classes.btnArea}>
+                <Button size="small" className={classes.buttonLink} component={LinkBtn} to="/register">
+                  <Icon className={classes.icon}>arrow_forward</Icon>
+                  Crear cuenta
+                </Button>
+              </div>
+            )}
           </form>
         </section>
       </Paper>

@@ -31,18 +31,23 @@ function StrippedTable({ materialesSeguridad, actividad, onCantidadMaterialChang
           </TableHead>
           <TableBody>
             {
-              materialesSeguridad.map(material => (
-                <TableRow key={material.id}>
+              materialesSeguridad.map(material => {
+                const cantidadState = cantidadesMateriales ? cantidadesMateriales[material.id] : 0;
+                const cantidadAlmacen = material.cantidad_almacen;
+                const cantidadNoDisponible = cantidadAlmacen < cantidadState;
+                return <TableRow key={material.id}>
                   <TableCell padding="normal">{ material.descripcion }</TableCell>
                   <TableCell align="right">
                     <TextField id="outlined-basic" 
                           label="Cantidad" 
                           variant="outlined" 
+                          error={cantidadNoDisponible}
+                          helperText={cantidadNoDisponible ? "No hay suficiente equipo en almacén" : `Cantidad en almacén: ${cantidadAlmacen}`}
                           onChange={ev => onCantidadMaterialChanged(ev.target.value, material.id, actividad.id)}
-                          value={cantidadesMateriales ? cantidadesMateriales[material.id] : 0} />
+                          value={cantidadState} />
                   </TableCell>
                 </TableRow>
-              ))
+              })
             }
           </TableBody>
         </Table>

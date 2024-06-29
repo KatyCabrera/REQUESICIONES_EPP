@@ -13,42 +13,40 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
+import { formatDate } from '../../utils/general';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSelectedRequisicion } from '../../redux/actions/requisicionesActions';
 
-const requisiciones = [
-    {
-        id: 1,
-        usuario: {
-            nombre: 'Jose Alfredo Jimenez',
-            id: 1,
-        },
-        fecha: '22 Abril 2024',
-        proyecto: {
-            id: 1,
-            nombre: 'Toyota Motors',
-        }
-    },
-    {
-        id: 2,
-        usuario: {
-            nombre: 'Javier Solis',
-            id: 2,
-        },
-        fecha: '22 Abril 2024',
-        proyecto: {
-            id: 1,
-            nombre: 'Mabe Electrodomésticos',
-        }
-    }
-]
-
+function getRequisiciones(userId, rol) {
+  return new Promise((resolve, reject) => {
+      const url = rol === 'Admin' ? 'requisiciones/equiposProteccion' 
+        : `requisiciones/usuario/${userId}`;
+      axios.get(url)
+        .then(response => resolve(response.data))
+        .catch(error => reject(error))
+  });
+}
 
 function ListaRequisiciones() {
   const title = 'Lista Requisiciones';
   const description = 'Requisiciones de equipo de seguridad';
+  const [requisiciones, setRequisiciones] = React.useState([]);
+  const dispatch = useDispatch();
+  const userData = useSelector(state => state.userReducer && state.userReducer.userData);
+
+  React.useEffect(() => {
+    getRequisiciones(userData.id, userData.rol).then(data => setRequisiciones(data || []));
+  }, []);
 
   const history = useHistory();
 
   function handleCreateRequisicion() {
+    history.push("/app/requisiciones");
+  }
+
+  function handleSelectRequisicion(requisicion) {
+    dispatch(setSelectedRequisicion(requisicion));
     history.push("/app/requisiciones");
   }
 
@@ -72,25 +70,52 @@ function ListaRequisiciones() {
                 requisiciones.map(requisicion => (
                     <>
                         <ListItem 
+                            key={requisicion.id}
                             alignItems="flex-start"
                             secondaryAction={
-                                <IconButton edge="end" aria-label="comments">
+                                <IconButton onClick={() => handleSelectRequisicion(requisicion)} edge="end" aria-label="comments">
                                   <EditIcon />
                                 </IconButton>
                               }>
                             <ListItemText
-                                primary={requisicion.usuario.nombre}
-                                secondary={
-                                    <React.Fragment>
+                                primary={
+                                  <React.Fragment>
+                                        <Typography
+                                            sx={{ display: 'inline', marginRight: 2 }}
+                                            component="span"
+                                            variant="subtitle2"
+                                            color="text.secondary"
+                                        >
+                                            {requisicion.proyecto}
+                                        </Typography>
                                         <Typography
                                             sx={{ display: 'inline' }}
                                             component="span"
-                                            variant="body2"
-                                            color="text.primary"
+                                            variant="caption"
+                                            color="text.secondary"
                                         >
-                                            {`Fecha de entrega: ${requisicion.fecha}`}
+                                            {`Cliente: ${requisicion.cliente}`}
                                         </Typography>
-                                        {` - Proyecto: ${requisicion.proyecto.nombre}`}
+                                    </React.Fragment>
+                                }
+                                secondary={
+                                    <React.Fragment>
+                                        <Typography
+                                            sx={{ display: 'inline', marginRight: 2 }}
+                                            component="span"
+                                            variant="caption"
+                                            color="text.secondary"
+                                        >
+                                            {`Fecha de entrada: ${formatDate(requisicion.fecha_entrada)}`}
+                                        </Typography>
+                                        <Typography
+                                            sx={{ display: 'inline' }}
+                                            component="span"
+                                            variant="caption"
+                                            color="text.secondary"
+                                        >
+                                            {`Fecha de salida: ${formatDate(requisicion.fecha_salida)}`}
+                                        </Typography>
                                     </React.Fragment>
                                 }
                             />

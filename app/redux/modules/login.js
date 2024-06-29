@@ -3,17 +3,17 @@ import { INIT } from '../constants/reduxFormConstants';
 
 const initialState = {
   usersLogin: {
-    email: 'johndoe@mail.com',
-    password: '12345678',
+    username: '',
+    password: '',
     remember: false
-  }
+  },
 };
 
 /* eslint-disable default-case, no-param-reassign */
 const loginReducer = (state = initialState, action = {}) => produce(state, draft => {
   switch (action.type) {
     case INIT:
-      draft.userLogin = state;
+      draft.usersLogin = action.data;
       break;
     default:
       break;

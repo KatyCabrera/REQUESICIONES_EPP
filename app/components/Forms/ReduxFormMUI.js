@@ -15,6 +15,7 @@ export const TextFieldRedux = ({ meta: { touched, error }, input, ...rest }) => 
       {...input}
       value={val || input.value}
       onChange={(e) => setVal(e.target.value)}
+      helperText={touched && Boolean(error) ? error : ''}
       error={touched && Boolean(error)} />
   );
 };

@@ -22,6 +22,9 @@ import messageStyles from 'dan-styles/Messages.scss';
 import avatarApi from 'dan-api/images/avatars';
 import link from 'dan-api/ui/link';
 import useStyles from './header-jss';
+import { clearUserData } from '../../redux/actions/userActions';
+import { useHistory } from 'react-router-dom';
+import { deleteToken } from '../../utils/auth';
 
 function UserMenu(props) {
   const { classes, cx } = useStyles();
@@ -29,6 +32,7 @@ function UserMenu(props) {
     anchorEl: null,
     openMenu: null
   });
+  const history = useHistory();
 
   const handleMenu = menu => (event) => {
     const { openMenu } = menuState;
@@ -40,6 +44,13 @@ function UserMenu(props) {
 
   const handleClose = () => {
     setMenuState({ anchorEl: null, openMenu: null });
+  };
+
+  const handleLogout = () => {
+    clearUserData();
+    handleClose();
+    history.push("/login");
+    deleteToken();
   };
 
   const { dark } = props;
@@ -158,7 +169,7 @@ function UserMenu(props) {
           </ListItemIcon>
         </MenuItem>
         <Divider />
-        <MenuItem onClick={handleClose} component={Link} to="/">
+        <MenuItem onClick={handleLogout} component={Link} to="/">
           <ListItemIcon>
             <ExitToApp />
           </ListItemIcon>
