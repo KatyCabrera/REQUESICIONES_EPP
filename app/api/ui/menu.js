@@ -17,7 +17,7 @@ module.exports = [
       },
       {
         key: 'SolicitudRequisicion',
-        name: 'Solicitud Requisicion',
+        name: 'Solicitud de Permiso',
         link: '/app/solicitud-requisicion',
         icon: 'ion-ios-home-outline',
       },

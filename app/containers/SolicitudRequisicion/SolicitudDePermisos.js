@@ -4,8 +4,8 @@ import { Helmet } from 'react-helmet';
 import brand from 'dan-api/dummy/brand';
 import { PapperBlock, EmptyData } from 'dan-components';
 
-function SolicitudRequisicion() {
-    const title = 'Solicitud Permiso';
+function SolicitudRequisición() {
+    const title = 'Solicitud de Permiso';
   const description = 'Crear solicitud de permiso';
   const [cliente, setCliente] = useState('');
   const [fechaRequisicion, setFechaRequisicion] = useState('');
@@ -31,7 +31,7 @@ function SolicitudRequisicion() {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
   </Helmet>
-  <PapperBlock title="Nueva Solicitud de Permiso" whiteBg icon="ion-ios-menu-outline" desc="Creación de solicitud de Permiso">
+  <PapperBlock title="Nueva Solicitud" whiteBg icon="ion-ios-menu-outline" desc="Creación de solicitud de permiso">
   <div style={{ display: 'flex', justifyContent: 'center' }}>
       <div style={{ width: '80%' }}>
         <Grid container spacing={2} style={{ marginBottom: '20px' }}>
