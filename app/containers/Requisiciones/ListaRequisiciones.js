@@ -42,6 +42,7 @@ function ListaRequisiciones() {
   const history = useHistory();
 
   function handleCreateRequisicion() {
+    dispatch(setSelectedRequisicion(null));
     history.push("/app/requisiciones");
   }
 

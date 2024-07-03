@@ -87,11 +87,24 @@ function Requisiciones(props) {
         fecha_salida: fechaSalida,
         equipos_proteccion_cantidades: equiposCantidades,
     };
-  }, [userData, cliente, planta, fechaEntrada, fechaSalida]);
+  }, [userData, cliente, planta, fechaEntrada, fechaSalida, cantidades]);
 
   useEffect(() => {
     getEquiposProtecion(userData.rol)
-      .then(data => setActividades(data))
+      .then(data => {
+        const newActividades = data.map(act => {
+          const equipos =  act.equiposProteccion.map(equipo => ({
+            ...equipo,
+            cantidad_almacen_respaldo: equipo.cantidad_almacen,
+          }));
+          return {
+            ...act,
+            equiposProteccion: equipos
+          }
+        });
+        setActividades(newActividades);
+      })
+
   }, []);
 
   useEffect(() => {
@@ -112,6 +125,13 @@ function Requisiciones(props) {
           }, {});
           setCantidades(cantidadesObj);
         } 
+    } else {
+        setCliente('');
+        setProyecto('');
+        setPlanta('');
+        setFechaEntrada('');
+        setFechaSalida('');
+        setCantidades({});
     }
   }, [selectedRequisicion]);
 
@@ -123,6 +143,29 @@ function Requisiciones(props) {
             [materialSeguridadId]: cantidad
         }
       }));
+
+      setActividades(prevState => {
+          const newActividades = [...prevState].map(act => {
+            if (act.id === activadId) {
+              const newMaterialesSeguridad = [...act.equiposProteccion].map(equipo => {
+                if (equipo.id === materialSeguridadId) {
+                    return {
+                      ...equipo,
+                      cantidad_almacen: cantidad ? equipo.cantidad_almacen_respaldo - cantidad : equipo.cantidad_almacen_respaldo,
+                    };
+                }
+                return equipo;    
+              });
+              return {
+                ...act,
+                equiposProteccion: newMaterialesSeguridad,
+              };
+            }
+            return act;
+          });
+
+          return newActividades;
+      });
   }
 
   function handleCreateRequisicion() {
