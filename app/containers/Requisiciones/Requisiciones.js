@@ -9,6 +9,7 @@ import { TextField, Grid, Typography } from '@mui/material';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { formatDate } from '../../utils/general';
+import CompleteUserInfo from '../../components/CompleteUserInfo/CompleteUserInfo';
 
 function getEquiposProtecion() {
     return new Promise((resolve, reject) => {
@@ -23,6 +24,20 @@ function createRequisicion(requisicion) {
       const form = new URLSearchParams();
       form.append("json", JSON.stringify(requisicion));
       axios.post("requisiciones", form, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        }
+      })
+        .then(response => resolve(response.data))
+        .catch(error => reject(error))
+  });
+}
+
+function updateRequisicion(requisicion) {
+  return new Promise((resolve, reject) => {
+      const form = new URLSearchParams();
+      form.append("json", JSON.stringify(requisicion));
+      axios.post("requisiciones/update", form, {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         }
@@ -86,8 +101,11 @@ function Requisiciones(props) {
         fecha_entrada: fechaEntrada,
         fecha_salida: fechaSalida,
         equipos_proteccion_cantidades: equiposCantidades,
+        ...(selectedRequisicion ? {
+          id: selectedRequisicion.id
+        }: {})
     };
-  }, [userData, cliente, planta, fechaEntrada, fechaSalida, cantidades]);
+  }, [userData, cliente, planta, fechaEntrada, fechaSalida, cantidades,proyecto, selectedRequisicion]);
 
   useEffect(() => {
     getEquiposProtecion(userData.rol)
@@ -180,7 +198,14 @@ function Requisiciones(props) {
   }
 
   function handleEditRequisicion() {
+    updateRequisicion(requestObj)
+      .then(data => {
+        alert("Requisición Modificada");
+        history.push("/app/lista-requisiciones");
+      })
+      .catch(() => {
 
+      });
   }
 
   return (
@@ -325,6 +350,7 @@ function Requisiciones(props) {
           }
         </div>
       </PapperBlock>
+      <CompleteUserInfo />
     </div>
   );
 }

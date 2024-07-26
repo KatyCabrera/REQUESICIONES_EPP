@@ -36,7 +36,8 @@ function Login() {
     getLoginUser(values.username, values.password)
       .then(user => {
         dispatch(setUserData(user));
-        setToken(`${values.username}&${values.password}`);
+        setToken(user.token);
+        axios.defaults.headers.common['Authorization'] = user.token;
         history.push('/app/lista-requisiciones/Lista-requisiciones');
         setIsLoading(false);
       })

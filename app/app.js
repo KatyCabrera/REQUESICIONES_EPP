@@ -89,7 +89,9 @@ if (!window.Intl) {
   render(translationMessages);
 }
 
-axios.defaults.baseURL = 'http://192.168.100.33:9000';
+axios.defaults.baseURL = process.env.REACT_APP_SERVICE_URL || 'https://9b34-2806-264-440e-6c76-d5ea-cbc0-3764-cc2f.ngrok-free.app';
+//"ngrok-skip-browser-warning": "69420"
+axios.defaults.headers.common['ngrok-skip-browser-warning'] = "69420";
 
 /**
 Offline access for production mode.

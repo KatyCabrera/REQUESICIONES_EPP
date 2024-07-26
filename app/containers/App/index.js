@@ -12,15 +12,13 @@ import { setUserData } from '../../redux/actions/userActions';
 import axios from 'axios';
 window.__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__ = true;
 
-function getLoginUser(username, password) {
+function getLoginUser() {
   return new Promise((resolve, reject) => {
       const form = new URLSearchParams();
-      form.append("username", username);
-      form.append("password", password);
-      axios.post(`/users/login`, form, {
-        headers: { 
-          "Content-Type": "application/x-www-form-urlencoded"
-        }
+      axios.get(`/users/auth`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
       })
         .then(response => resolve(response.data))
         .catch(error => reject(error))
@@ -34,9 +32,10 @@ function App(props) {
 
   useEffect(() => {
     const token = getToken();
+    
     if (token) {
-      const userpass = token.split("&");
-      getLoginUser(userpass[0], userpass[1])
+      axios.defaults.headers.common['Authorization'] = token;
+      getLoginUser()
         .then(data => {
           dispatch(setUserData(data));
         })
