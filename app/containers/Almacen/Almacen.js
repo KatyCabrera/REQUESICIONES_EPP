@@ -35,6 +35,8 @@ function Almacen(props) {
     const title = 'Almacen';
     const description = 'Almacén de equipos de seguridad';
     const userData = useSelector(state => state.userReducer && state.userReducer.userData);
+
+    const [editedEquipos, setEditedEquipos] = useState([]);
     
     const [isEdited, setEdited] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -89,6 +91,10 @@ function Almacen(props) {
 
   function handleMaterialChanged(material, actividad) {
     setEdited(true);
+    setEditedEquipos(prevState => {
+
+        
+    })
     setActividades(prevState => {
         const newActividades = [...prevState].map(act => {
             if (act.id === actividad.id) {
