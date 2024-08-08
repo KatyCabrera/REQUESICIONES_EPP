@@ -32,6 +32,12 @@ function PapperBlock(props) {
               {desc}
             </Typography>
           </div>
+          {
+            props.rightComponent ? 
+            <div>
+              {props.rightComponent}
+            </div>: null
+          }
         </div>
         <section className={cx(classes.content, whiteBg && classes.whiteBg, overflowX && classes.overflowX)}>
           {children}

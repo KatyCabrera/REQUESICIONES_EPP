@@ -15,6 +15,7 @@ import {
   ListaRequisiciones,
   Usuario,
   SolicitudRequisicion,
+  Almacen,
 } from '../pageListAsync';
 
 function Application(props) {
@@ -34,6 +35,7 @@ function Application(props) {
         <Route path="/app/requisiciones" component={Requisiciones} />
         <Route path="/app/lista-requisiciones" component={ListaRequisiciones} />
         <Route path="/app/solicitud-requisicion" component={SolicitudRequisicion} />
+        <Route path="/app/almacen" component={Almacen} />
         <Route component={NotFound} />
       </Switch>
     </Dashboard>

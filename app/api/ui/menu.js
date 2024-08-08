@@ -1,5 +1,18 @@
 module.exports = [
   {
+    key: 'almacen',
+    name: 'Almacen',
+    icon: 'inventory',
+    child:[
+      {
+        key: 'almacen',
+        name: 'Administrar Almacén',
+        link: '/app/almacen',
+        icon: 'inventory',
+      },
+    ]
+  },
+  {
     key: 'pages',
     name: 'Requisiciones',
     icon: 'ion-ios-paper-outline',

@@ -89,7 +89,7 @@ if (!window.Intl) {
   render(translationMessages);
 }
 
-axios.defaults.baseURL = process.env.REACT_APP_SERVICE_URL || 'https://9b34-2806-264-440e-6c76-d5ea-cbc0-3764-cc2f.ngrok-free.app';
+axios.defaults.baseURL = process.env.REACT_APP_SERVICE_URL || 'https://ef34-2806-2f0-63e0-f886-2d6b-3a2e-e7d-cb98.ngrok-free.app';
 //"ngrok-skip-browser-warning": "69420"
 axios.defaults.headers.common['ngrok-skip-browser-warning'] = "69420";
 

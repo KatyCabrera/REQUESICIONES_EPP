@@ -74,3 +74,8 @@ export const SolicitudRequisicion = loadable(() =>
   import('./SolicitudRequisicion/SolicitudRequisicion'), {
     fallback: <Loading />,
   });
+
+export const Almacen = loadable(() =>
+  import('./Almacen/Almacen'), {
+    fallback: <Loading />,
+  });

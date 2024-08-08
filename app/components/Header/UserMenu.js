@@ -25,6 +25,7 @@ import useStyles from './header-jss';
 import { clearUserData } from '../../redux/actions/userActions';
 import { useHistory } from 'react-router-dom';
 import { deleteToken } from '../../utils/auth';
+import Notifications from './Notifications';
 
 function UserMenu(props) {
   const { classes, cx } = useStyles();
@@ -57,89 +58,7 @@ function UserMenu(props) {
   const { anchorEl, openMenu } = menuState;
   return (
     <div>
-      <IconButton
-        aria-haspopup="true"
-        onClick={handleMenu('notification')}
-        color="inherit"
-        className={cx(classes.notifIcon, dark ? classes.dark : classes.light)}
-        size="large">
-        <Badge className={classes.badge} badgeContent={4} color="secondary">
-          <i className="ion-ios-notifications-outline" />
-        </Badge>
-      </IconButton>
-      <Menu
-        id="menu-notification"
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        className={classes.notifMenu}
-        PaperProps={{
-          style: {
-            width: 350,
-          },
-        }}
-        open={openMenu === 'notification'}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}>
-          <div className={messageStyles.messageInfo}>
-            <ListItemAvatar>
-              <Avatar alt="User Name" src={avatarApi[0]} />
-            </ListItemAvatar>
-            <ListItemText primary={dummy.text.subtitle} secondary={dummy.text.date} />
-          </div>
-        </MenuItem>
-        <Divider variant="inset" />
-        <MenuItem onClick={handleClose}>
-          <div className={messageStyles.messageInfo}>
-            <ListItemAvatar>
-              <Avatar className={messageStyles.icon}>
-                <Info />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={dummy.text.sentences} className={classes.textNotif} secondary={dummy.text.date} />
-          </div>
-        </MenuItem>
-        <Divider variant="inset" />
-        <MenuItem onClick={handleClose}>
-          <div className={messageStyles.messageSuccess}>
-            <ListItemAvatar>
-              <Avatar className={messageStyles.icon}>
-                <Check />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={dummy.text.subtitle} className={classes.textNotif} secondary={dummy.text.date} />
-          </div>
-        </MenuItem>
-        <Divider variant="inset" />
-        <MenuItem onClick={handleClose}>
-          <div className={messageStyles.messageWarning}>
-            <ListItemAvatar>
-              <Avatar className={messageStyles.icon}>
-                <Warning />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={dummy.text.subtitle} className={classes.textNotif} secondary={dummy.text.date} />
-          </div>
-        </MenuItem>
-        <Divider variant="inset" />
-        <MenuItem onClick={handleClose}>
-          <div className={messageStyles.messageError}>
-            <ListItemAvatar>
-              <Avatar className={messageStyles.icon}>
-                <Error />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Suspendisse pharetra pulvinar sollicitudin. Aenean ut orci eu odio cursus lobortis eget tempus velit. " className={classes.textNotif} secondary="Jan 9, 2016" />
-          </div>
-        </MenuItem>
-      </Menu>
+      <Notifications />
       <Button onClick={handleMenu('user-setting')}>
         <Avatar
           alt={dummy.user.name}
