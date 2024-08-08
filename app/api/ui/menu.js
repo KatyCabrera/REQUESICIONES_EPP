@@ -27,12 +27,7 @@ module.exports = [
         link: '/app/lista-requisiciones/Lista-requisiciones',
         icon: 'ion-ios-list-box-outline',
       },
-      {
-        key: 'Requisición Permisos',
-        name: 'Requisición de Permisos',
-        link: '/app/requisición_de_permisos/Requisisción_de_Permisos',
-        icon: 'ion-ios-grid-outline',
-      },
+      
       /*{
         key: 'maintenance',
         name: 'Maintenance',
