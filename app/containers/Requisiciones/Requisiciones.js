@@ -47,6 +47,19 @@ function updateRequisicion(requisicion) {
   });
 }
 
+function getUser(id) {
+  return new Promise((resolve, reject) => {
+      const form = new URLSearchParams();
+      axios.get(`/users/${id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+        .then(response => resolve(response.data))
+        .catch(error => reject(error))
+  });
+}
+
 function Requisiciones(props) {
   const title = 'Requisiciones';
   const description = 'Requisiciones de equipo de seguridad';
@@ -96,7 +109,7 @@ function Requisiciones(props) {
     return {
         cliente,
         planta,
-        solicitante: userData.id,
+        solicitante: selectedRequisicion ? selectedRequisicion.solicitante : userData.id,
         proyecto,
         fecha_entrada: fechaEntrada,
         fecha_salida: fechaSalida,
@@ -127,6 +140,7 @@ function Requisiciones(props) {
 
   useEffect(() => {
     if (selectedRequisicion) {
+      console.log(selectedRequisicion);
         setCliente(selectedRequisicion.cliente);
         setProyecto(selectedRequisicion.proyecto);
         setPlanta(selectedRequisicion.planta);
@@ -143,6 +157,10 @@ function Requisiciones(props) {
           }, {});
           setCantidades(cantidadesObj);
         } 
+        getUser(selectedRequisicion.solicitante)
+          .then(usr => {
+            usr && setSolicitante(usr.username)
+          })
     } else {
         setCliente('');
         setProyecto('');
@@ -279,7 +297,7 @@ function Requisiciones(props) {
                   fullWidth
                   required
                   disabled
-                  value={userData.username}
+                  value={selectedRequisicion ? solicitante : userData.username}
                   onChange={(e) => setSolicitante(e.target.value)}
                 />
               </Grid>

@@ -26,7 +26,10 @@ function FilaMaterial({ material, actividad, onMaterialChanged }) {
             ...prevState,
             cantidad_almacen: value
         }));
-        onMaterialChanged(materialLocal, actividad);
+        onMaterialChanged({
+            ...materialLocal,
+            cantidad_almacen: value ? Number(value) : value
+        }, actividad);
     }
 
     function handleNombreMaterialChanged(ev) {
@@ -36,7 +39,10 @@ function FilaMaterial({ material, actividad, onMaterialChanged }) {
             ...prevState,
             descripcion: value
         }));
-        onMaterialChanged(materialLocal, actividad);
+        onMaterialChanged({
+            ...materialLocal,
+            descripcion: value 
+        }, actividad);
     }
 
     function handleSave() {

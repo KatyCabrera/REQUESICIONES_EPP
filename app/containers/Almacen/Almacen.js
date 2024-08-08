@@ -91,9 +91,25 @@ function Almacen(props) {
 
   function handleMaterialChanged(material, actividad) {
     setEdited(true);
+    console.log(material);
     setEditedEquipos(prevState => {
+        let newEquipos = [...prevState];
 
-        
+        if (newEquipos.some(item => item.id === material.id)) {
+            newEquipos = newEquipos.map(item => {
+                if (item.id === material.id) {
+                    return {...material};
+                }
+                return item;
+            })
+        } else {
+            newEquipos = [
+                ...newEquipos,
+                material
+            ]
+        }
+
+        return newEquipos;
     })
     setActividades(prevState => {
         const newActividades = [...prevState].map(act => {
@@ -121,13 +137,14 @@ function Almacen(props) {
   
 
   function handleEditRequisicion() {
-    updateEquipoProteccion(actividades)
+    console.log("EQUIPS", editedEquipos);
+    /*updateEquipoProteccion(actividades)
       .then(data => {
         alert("Equipos de protecciòn modificados correctamente");
       })
       .catch(() => {
 
-      });
+      });*/
   }
 
   return (
