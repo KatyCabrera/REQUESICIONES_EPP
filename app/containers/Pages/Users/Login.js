@@ -12,6 +12,7 @@ import axios from 'axios';
 function getLoginUser(username, password) {
   return new Promise((resolve, reject) => {
       const form = new URLSearchParams();
+      console.log(username)
       form.append("username", username);
       form.append("password", password);
       axios.post(`/users/login`, form, {
@@ -30,9 +31,11 @@ function Login() {
   const { classes } = useStyles();
   const [ errorLogin, setErrorLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorl, seterrorl] = useState(false)
   const submitForm = values => {
     setErrorLogin(false);
     setIsLoading(true);
+    console.log("Values", values)
     getLoginUser(values.username, values.password)
       .then(user => {
         dispatch(setUserData(user));
@@ -44,6 +47,7 @@ function Login() {
       .catch(() => {
         setErrorLogin(true);
         setIsLoading(false);
+        seterrorl(true)
       });
     
   };
@@ -65,7 +69,9 @@ function Login() {
         <div className={classes.userFormWrap}>
           <LoginForm errorLogin={errorLogin} 
               onSubmit={(values) => submitForm(values)}
-              isLoading={isLoading} />
+              isLoading={isLoading} 
+              errorx={errorl}
+              />
         </div>
       </div>
     </div>

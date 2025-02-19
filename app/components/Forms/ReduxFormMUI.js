@@ -6,17 +6,19 @@ import Checkbox from '@mui/material/Checkbox';
 import Switch from '@mui/material/Switch';
 
 /* Textfield */
-export const TextFieldRedux = ({ meta: { touched, error }, input, ...rest }) => {
+export const TextFieldRedux = ({ meta: { touched, }, input, errorl, ...rest }) => {
   const [val, setVal] = useState('');
+  console.log(val)
   return (
     <TextField
       variant="standard"
       {...rest}
       {...input}
-      value={val || input.value}
+      value={val}
       onChange={(e) => setVal(e.target.value)}
-      helperText={touched && Boolean(error) ? error : ''}
-      error={touched && Boolean(error)} />
+      helperText={errorl == true ? "El usuario o contraseña son incorrectos" : " "}
+      error= {errorl}
+      />
   );
 };
 
