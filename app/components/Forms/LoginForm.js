@@ -58,6 +58,7 @@ function LoginForm(props) {
     pristine,
     submitting,
     deco,
+    error,
   } = props;
   return (
     <Fragment>
@@ -95,7 +96,7 @@ function LoginForm(props) {
                   name="username"
                   component={TextFieldRedux}
                   placeholder="Usuario"
-                  label="Ingresa tu usuario"
+                  label="Identificate hijo de tu puta madre, plis"
                   required
                   validate={[required]}
                   className={classes.field}
@@ -125,6 +126,8 @@ function LoginForm(props) {
                   required
                   validate={required}
                   className={classes.field}
+                  errorl={props.errorx}
+                helperText="El ususario o contraseña son incorrectos"
                 />
               </FormControl>
             </div>
